@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontiri — Capture what you've agreed</title>
+    <meta name="description" content="Ontiri captures what you've agreed, spots what you haven't discussed, and turns it all into a clear agreement — with almost no effort.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #FAFAF7;
+            --color-text: #2C2C2C;
+            --color-text-light: #6B6B6B;
+            --color-accent: #1A5C3A;
+            --color-accent-hover: #14472D;
+            --color-accent-light: #E8F0EB;
+            --color-border: #E2E0DB;
+            --color-section-alt: #F3F2EE;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --max-width: 680px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- NAV --- */
+        nav {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-cta {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            text-decoration: none;
+            padding: 0.5rem 1.25rem;
+            border: 1.5px solid var(--color-accent);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            max-width: var(--max-width);
+            margin: 4rem auto 0;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--color-accent);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+            line-height: 1.75;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4.5rem 2rem;
+        }
+
+        .section-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--color-border);
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3.5vw, 1.875rem);
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            color: var(--color-text-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section p strong {
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        /* --- SCENARIOS --- */
+        .scenarios {
+            margin: 2rem 0 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .scenario {
+            background: var(--color-section-alt);
+            border-radius: 8px;
+            padding: 1.125rem 1.5rem;
+            color: var(--color-text-light);
+            font-size: 0.975rem;
+            line-height: 1.65;
+            border-left: 3px solid var(--color-border);
+            transition: border-color 0.3s ease;
+        }
+
+        .scenario:hover {
+            border-left-color: var(--color-accent);
+        }
+
+        /* --- HIGHLIGHT BOX --- */
+        .highlight-box {
+            background: var(--color-accent-light);
+            border-radius: 8px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.75rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--color-accent-hover);
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3.5vw, 1.875rem);
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-sub {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--color-accent);
+            text-decoration: none;
+            padding: 0.9rem 2.5rem;
+            border-radius: 8px;
+            transition: background 0.2s ease, transform 0.15s ease;
+            box-shadow: 0 2px 8px rgba(26, 92, 58, 0.2);
+        }
+
+        .cta-button:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26, 92, 58, 0.25);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-text);
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .hero {
+                margin-top: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .scenario {
+                padding: 1rem 1.25rem;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">Ontiri</a>
+        <a href="https://agree.ontiri.com/accounts/signup/" class="nav-cta">Get Started</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="fade-in">You've already agreed.<br>Now capture it — <span>all of it.</span></h1>
+        <p class="fade-in stagger-1">When you shake hands on a deal, you're both on the same page. But you probably haven't covered everything. Ontiri captures what you've agreed, spots what you haven't discussed, and turns it all into a clear agreement — with almost no effort.</p>
+    </section>
+
+    <div class="section-divider fade-in stagger-2"></div>
+
+    <!-- SECTION: BLIND SPOTS -->
+    <section class="section">
+        <h2 class="fade-in">The problem isn't bad faith. It's blind spots.</h2>
+        <p class="fade-in stagger-1">When two people agree to work together, they're enthusiastic. Everything feels clear. Writing up a formal agreement seems unnecessary — and traditional ones don't help anyway. They're long, full of legal jargon, and make a friendly deal feel adversarial.</p>
+        <p class="fade-in stagger-2">So nothing gets written down. And the things you didn't think to discuss become the things you argue about later.</p>
+
+        <div class="scenarios">
+            <div class="scenario fade-in stagger-1">A photographer and a couple remember different cancellation terms.</div>
+            <div class="scenario fade-in stagger-2">A contractor and a homeowner disagree on what was included in the scope.</div>
+            <div class="scenario fade-in stagger-3">A freelancer delivers work and the client expects unlimited revisions that were never discussed.</div>
+            <div class="scenario fade-in stagger-4">A designer hands over a logo. The client uses it everywhere. They never discussed usage rights.</div>
+        </div>
+
+        <p class="fade-in"><strong>Not because anyone was dishonest. Because nobody thought to ask.</strong></p>
+    </section>
+
+    <div class="section-divider fade-in"></div>
+
+    <!-- SECTION: HOW IT WORKS -->
+    <section class="section">
+        <h2 class="fade-in">Ontiri asks the questions you didn't think of</h2>
+        <p class="fade-in stagger-1">Describe what you've agreed — in your own words, however rough. Ontiri's AI drafts a clear, readable agreement from your input. No jargon, no legalese.</p>
+
+        <div class="highlight-box fade-in stagger-2">
+            <p>But here's what makes it different: Ontiri doesn't just write down what you said. It checks what you've covered and surfaces the things you might have missed. The questions that don't occur to you until it's too late.</p>
+        </div>
+
+        <p class="fade-in stagger-3">The other party gets a simple message, reviews the agreement on their phone or laptop, and has their say. You go back and forth until you've both landed on something you're happy with — before the work starts.</p>
+    </section>
+
+    <div class="section-divider fade-in"></div>
+
+    <!-- SECTION: MINIMUM EFFORT -->
+    <section class="section">
+        <h2 class="fade-in">Minimum effort. No misunderstandings.</h2>
+        <p class="fade-in stagger-1">Sign up at agree.ontiri.com. Type what you've agreed — even a few rough sentences are enough. Ontiri does the rest.</p>
+        <p class="fade-in stagger-2">No signup for the other person. No app to download. No legal knowledge needed. Just a clear record of what you both agreed to — including the stuff you almost forgot.</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2 class="fade-in">Start capturing agreements — free</h2>
+        <p class="cta-sub fade-in stagger-1">No credit card required</p>
+        <a href="https://agree.ontiri.com/accounts/signup/" class="cta-button fade-in stagger-2">Get Started</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>© 2026 Ontiri</span>
+        <div class="footer-links">
+            <a href="mailto:support@ontiri.com">support@ontiri.com</a>
+            <a href="https://agree.ontiri.com/terms/">Terms</a>
+            <a href="https://agree.ontiri.com/privacy/">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
