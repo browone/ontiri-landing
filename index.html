@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ontiri — Capture what you've agreed</title>
-    <meta name="description" content="Ontiri captures what you've agreed, spots what you haven't discussed, and turns it all into a clear agreement — with almost no effort.">
+    <title>Ontiri — Get on the same page before you start</title>
+    <meta name="description" content="Ontiri helps two people turn a handshake into a clear, written agreement — whether you're still working things out or just need to capture what you've already agreed.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -103,8 +103,40 @@
             font-size: 1.125rem;
             color: var(--color-text-light);
             line-height: 1.75;
-            max-width: 580px;
+            max-width: 560px;
             margin: 0 auto;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--color-accent);
+            text-decoration: none;
+            padding: 0.85rem 2.25rem;
+            border-radius: 8px;
+            transition: background 0.2s ease, transform 0.15s ease;
+            box-shadow: 0 2px 8px rgba(26, 92, 58, 0.2);
+            margin-top: 2rem;
+        }
+
+        .hero-cta:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26, 92, 58, 0.25);
+        }
+
+        .hero-cta:active {
+            transform: translateY(0);
+        }
+
+        .hero-sub {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-top: 0.75rem;
+            opacity: 0.7;
         }
 
         /* --- SECTIONS --- */
@@ -143,6 +175,51 @@
             font-weight: 500;
         }
 
+        /* --- TWO ENTRY POINTS --- */
+        .entry-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin: 2.5rem 0 1.75rem;
+        }
+
+        .entry-point {
+            background: #fff;
+            border: 1.5px solid var(--color-border);
+            border-radius: 10px;
+            padding: 1.75rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .entry-point:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 2px 12px rgba(26, 92, 58, 0.08);
+        }
+
+        .entry-point .ep-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-point h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            line-height: 1.35;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+
+        .entry-point p {
+            font-size: 0.925rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
         /* --- SCENARIOS --- */
         .scenarios {
             margin: 2rem 0 1.75rem;
@@ -176,6 +253,50 @@
 
         .highlight-box p {
             color: var(--color-accent-hover);
+        }
+
+        /* --- STEPS --- */
+        .steps {
+            margin: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: var(--color-accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            margin-top: 2px;
+        }
+
+        .step-content h3 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            font-size: 0.925rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 0;
         }
 
         /* --- CTA SECTION --- */
@@ -281,8 +402,16 @@
                 padding: 3rem 1.5rem;
             }
 
+            .entry-points {
+                grid-template-columns: 1fr;
+            }
+
             .scenario {
                 padding: 1rem 1.25rem;
+            }
+
+            .step {
+                gap: 1rem;
             }
 
             footer {
@@ -301,23 +430,47 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1 class="fade-in">You've already agreed.<br>Now capture it — <span>all of it.</span></h1>
-        <p class="fade-in stagger-1">When you shake hands on a deal, you're both on the same page. But you probably haven't covered everything. Ontiri captures what you've agreed, spots what you haven't discussed, and turns it all into a clear agreement — with almost no effort.</p>
+        <h1 class="fade-in">Get on the same page<br><span>before the work starts.</span></h1>
+        <p class="fade-in stagger-1">Ontiri turns a conversation into a clear, written agreement — whether you're still working things out or just need to capture what you've already decided.</p>
+        <a href="https://agree.ontiri.com/accounts/signup/" class="hero-cta fade-in stagger-2">Create your first agreement</a>
+        <p class="hero-sub fade-in stagger-2">Free to start. No credit card required.</p>
     </section>
 
-    <div class="section-divider fade-in stagger-2"></div>
+    <div class="section-divider fade-in stagger-3"></div>
 
-    <!-- SECTION: BLIND SPOTS -->
+    <!-- SECTION: TWO STARTING POINTS -->
     <section class="section">
-        <h2 class="fade-in">The problem isn't bad faith. It's blind spots.</h2>
-        <p class="fade-in stagger-1">When two people agree to work together, they're enthusiastic. Everything feels clear. Writing up a formal agreement seems unnecessary — and traditional ones don't help anyway. They're long, full of legal jargon, and make a friendly deal feel adversarial.</p>
-        <p class="fade-in stagger-2">So nothing gets written down. And the things you didn't think to discuss become the things you argue about later.</p>
+        <h2 class="fade-in">Two ways people use Ontiri</h2>
+        <p class="fade-in stagger-1">It doesn't matter whether you've shaken hands or you're still figuring things out. Ontiri meets you where you are.</p>
+
+        <div class="entry-points fade-in stagger-2">
+            <div class="entry-point">
+                <div class="ep-label">Still working it out</div>
+                <h3>Get on the same page</h3>
+                <p>You've talked about working together but haven't nailed down the details. Ontiri helps you surface what you haven't discussed yet and work through it together.</p>
+            </div>
+            <div class="entry-point">
+                <div class="ep-label">Already agreed</div>
+                <h3>Capture what you decided</h3>
+                <p>You've already agreed on the terms. Ontiri turns your notes into a clear agreement and catches anything you might have missed.</p>
+            </div>
+        </div>
+
+        <p class="fade-in stagger-3"><strong>Same tool. Same workflow. Different starting points.</strong></p>
+    </section>
+
+    <div class="section-divider fade-in"></div>
+
+    <!-- SECTION: THE PROBLEM -->
+    <section class="section">
+        <h2 class="fade-in">The stuff that causes problems later</h2>
+        <p class="fade-in stagger-1">When two people agree to work together, everything feels clear. Writing it down seems unnecessary — and traditional agreements are long, full of jargon, and make a friendly deal feel adversarial. So nothing gets written down.</p>
 
         <div class="scenarios">
-            <div class="scenario fade-in stagger-1">A photographer and a couple remember different cancellation terms.</div>
+            <div class="scenario fade-in stagger-1">A freelancer delivers the work. The client expects unlimited revisions that were never discussed.</div>
             <div class="scenario fade-in stagger-2">A contractor and a homeowner disagree on what was included in the scope.</div>
-            <div class="scenario fade-in stagger-3">A freelancer delivers work and the client expects unlimited revisions that were never discussed.</div>
-            <div class="scenario fade-in stagger-4">A designer hands over a logo. The client uses it everywhere. They never discussed usage rights.</div>
+            <div class="scenario fade-in stagger-3">Two people start a project together. Three months in, they have very different ideas about who owns what.</div>
+            <div class="scenario fade-in stagger-4">A photographer and a couple remember different cancellation terms.</div>
         </div>
 
         <p class="fade-in"><strong>Not because anyone was dishonest. Because nobody thought to ask.</strong></p>
@@ -327,35 +480,64 @@
 
     <!-- SECTION: HOW IT WORKS -->
     <section class="section">
-        <h2 class="fade-in">Ontiri asks the questions you didn't think of</h2>
-        <p class="fade-in stagger-1">Describe what you've agreed — in your own words, however rough. Ontiri's AI drafts a clear, readable agreement from your input. No jargon, no legalese.</p>
+        <h2 class="fade-in">Here's how it works</h2>
 
-        <div class="highlight-box fade-in stagger-2">
-            <p>But here's what makes it different: Ontiri doesn't just write down what you said. It checks what you've covered and surfaces the things you might have missed. The questions that don't occur to you until it's too late.</p>
+        <div class="steps fade-in stagger-1">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Describe what you need to agree on</h3>
+                    <p>In your own words, however rough. Paste in an email, some notes, bullet points — whatever you have.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Ontiri drafts an agreement and flags what's missing</h3>
+                    <p>The AI writes a clear, readable agreement from your input — no jargon. Then it surfaces the things you probably haven't thought about yet.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>The other person reviews and has their say</h3>
+                    <p>They get a simple link. No signup needed, no app to download. They review, respond, and you work through any open questions together.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>You both confirm</h3>
+                    <p>When you're both happy, you lock it in. A clear record of what you agreed — that you can reference if things get fuzzy later.</p>
+                </div>
+            </div>
         </div>
 
-        <p class="fade-in stagger-3">The other party gets a simple message, reviews the agreement on their phone or laptop, and has their say. You go back and forth until you've both landed on something you're happy with — before the work starts.</p>
+        <div class="highlight-box fade-in stagger-2">
+            <p><strong>The whole thing takes about ten minutes.</strong> And the other person doesn't need to sign up for anything.</p>
+        </div>
     </section>
 
     <div class="section-divider fade-in"></div>
 
-    <!-- SECTION: MINIMUM EFFORT -->
+    <!-- SECTION: WHO IT'S FOR -->
     <section class="section">
-        <h2 class="fade-in">Minimum effort. No misunderstandings.</h2>
-        <p class="fade-in stagger-1">Sign up at agree.ontiri.com. Type what you've agreed — even a few rough sentences are enough. Ontiri does the rest.</p>
-        <p class="fade-in stagger-2">No signup for the other person. No app to download. No legal knowledge needed. Just a clear record of what you both agreed to — including the stuff you almost forgot.</p>
+        <h2 class="fade-in">Built for people who'd rather just get started</h2>
+        <p class="fade-in stagger-1">Ontiri is for anyone who's about to work with someone else and wants to avoid the "that's not what I thought we agreed" conversation three months later.</p>
+        <p class="fade-in stagger-2">Freelancers and their clients. Contractors and homeowners. Business partners. Collaborators. Anyone who wants a clear starting point — without hiring a lawyer or spending an afternoon writing a contract.</p>
+        <p class="fade-in stagger-3"><strong>It's friendly, it's fast, and it's designed to feel like a conversation — not a legal process.</strong></p>
     </section>
 
     <!-- CTA -->
     <section class="cta-section">
-        <h2 class="fade-in">Start capturing agreements — free</h2>
-        <p class="cta-sub fade-in stagger-1">No credit card required</p>
+        <h2 class="fade-in">Spend ten minutes now.<br>Save yourself the argument later.</h2>
+        <p class="cta-sub fade-in stagger-1">Free to start. No credit card required.</p>
         <a href="https://agree.ontiri.com/accounts/signup/" class="cta-button fade-in stagger-2">Get Started</a>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <span>© 2026 Ontiri</span>
+        <span>&copy; 2026 Ontiri</span>
         <div class="footer-links">
             <a href="mailto:support@ontiri.com">support@ontiri.com</a>
             <a href="https://agree.ontiri.com/terms/">Terms</a>
@@ -364,7 +546,6 @@
     </footer>
 
     <script>
-        // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
