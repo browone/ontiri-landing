@@ -7,7 +7,7 @@
     <meta name="description" content="Ontiri helps two people turn a handshake into a clear, written agreement — whether you're still working things out or just need to capture what you've already agreed.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -16,22 +16,25 @@
         }
 
         :root {
-            --color-bg: #FAFAF7;
-            --color-text: #2C2C2C;
-            --color-text-light: #6B6B6B;
-            --color-accent: #1A5C3A;
-            --color-accent-hover: #14472D;
-            --color-accent-light: #E8F0EB;
-            --color-border: #E2E0DB;
-            --color-section-alt: #F3F2EE;
-            --font-display: 'DM Serif Display', Georgia, serif;
+            --color-bg: #FAFAF8;
+            --color-text: #1A1A1A;
+            --color-text-mid: #4A4A4A;
+            --color-text-light: #7A7A7A;
+            --color-accent: #1B6B3A;
+            --color-accent-hover: #145A2E;
+            --color-accent-soft: #E6F2EB;
+            --color-accent-glow: rgba(27, 107, 58, 0.08);
+            --color-warm: #F5F0E8;
+            --color-warm-deep: #EDE5D8;
+            --color-border: #E0DDD6;
+            --color-card: #FFFFFF;
+            --font-display: 'Instrument Serif', Georgia, serif;
             --font-body: 'DM Sans', -apple-system, sans-serif;
-            --max-width: 680px;
+            --max-width: 1080px;
+            --content-width: 680px;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-body);
@@ -40,315 +43,497 @@
             line-height: 1.7;
             font-size: 17px;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         /* --- NAV --- */
         nav {
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 2rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 960px;
-            margin: 0 auto;
         }
 
         .logo {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--color-text);
             text-decoration: none;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
         }
 
-        .nav-cta {
-            font-family: var(--font-body);
-            font-size: 0.875rem;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
             font-weight: 500;
-            color: var(--color-accent);
+            color: var(--color-text-mid);
             text-decoration: none;
-            padding: 0.5rem 1.25rem;
-            border: 1.5px solid var(--color-accent);
-            border-radius: 6px;
-            transition: all 0.2s ease;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover { color: var(--color-text); }
+
+        .nav-cta {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--color-accent);
+            text-decoration: none;
+            padding: 0.55rem 1.35rem;
+            border-radius: 8px;
+            transition: all 0.2s;
         }
 
         .nav-cta:hover {
-            background: var(--color-accent);
-            color: #fff;
+            background: var(--color-accent-hover);
         }
 
         /* --- HERO --- */
         .hero {
             max-width: var(--max-width);
-            margin: 4rem auto 0;
+            margin: 3.5rem auto 0;
             padding: 0 2rem;
             text-align: center;
         }
 
-        .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            color: var(--color-text);
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--color-accent);
+            background: var(--color-accent-soft);
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
             margin-bottom: 1.5rem;
         }
 
-        .hero h1 span {
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 em {
+            font-style: italic;
             color: var(--color-accent);
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            color: var(--color-text-light);
-            line-height: 1.75;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-            background: var(--color-accent);
-            text-decoration: none;
-            padding: 0.85rem 2.25rem;
-            border-radius: 8px;
-            transition: background 0.2s ease, transform 0.15s ease;
-            box-shadow: 0 2px 8px rgba(26, 92, 58, 0.2);
-            margin-top: 2rem;
-        }
-
-        .hero-cta:hover {
-            background: var(--color-accent-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(26, 92, 58, 0.25);
-        }
-
-        .hero-cta:active {
-            transform: translateY(0);
         }
 
         .hero-sub {
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-            margin-top: 0.75rem;
-            opacity: 0.7;
+            font-size: 1.15rem;
+            color: var(--color-text-mid);
+            line-height: 1.7;
+            max-width: 540px;
+            margin: 0 auto 2rem;
         }
 
-        /* --- SECTIONS --- */
-        .section {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 4.5rem 2rem;
-        }
-
-        .section-divider {
-            width: 40px;
-            height: 2px;
-            background: var(--color-border);
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3.5vw, 1.875rem);
-            line-height: 1.3;
-            letter-spacing: -0.01em;
-            margin-bottom: 1.5rem;
-        }
-
-        .section p {
-            color: var(--color-text-light);
-            margin-bottom: 1.25rem;
-        }
-
-        .section p:last-child {
-            margin-bottom: 0;
-        }
-
-        .section p strong {
-            color: var(--color-text);
-            font-weight: 500;
-        }
-
-        /* --- TWO ENTRY POINTS --- */
-        .entry-points {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin: 2.5rem 0 1.75rem;
-        }
-
-        .entry-point {
-            background: #fff;
-            border: 1.5px solid var(--color-border);
-            border-radius: 10px;
-            padding: 1.75rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .entry-point:hover {
-            border-color: var(--color-accent);
-            box-shadow: 0 2px 12px rgba(26, 92, 58, 0.08);
-        }
-
-        .entry-point .ep-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--color-accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .entry-point h3 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            line-height: 1.35;
-            margin-bottom: 0.75rem;
-            color: var(--color-text);
-        }
-
-        .entry-point p {
-            font-size: 0.925rem;
-            color: var(--color-text-light);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        /* --- SCENARIOS --- */
-        .scenarios {
-            margin: 2rem 0 1.75rem;
+        .hero-actions {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-        }
-
-        .scenario {
-            background: var(--color-section-alt);
-            border-radius: 8px;
-            padding: 1.125rem 1.5rem;
-            color: var(--color-text-light);
-            font-size: 0.975rem;
-            line-height: 1.65;
-            border-left: 3px solid var(--color-border);
-            transition: border-color 0.3s ease;
-        }
-
-        .scenario:hover {
-            border-left-color: var(--color-accent);
-        }
-
-        /* --- HIGHLIGHT BOX --- */
-        .highlight-box {
-            background: var(--color-accent-light);
-            border-radius: 8px;
-            padding: 1.5rem 1.75rem;
-            margin: 1.75rem 0;
-        }
-
-        .highlight-box p {
-            color: var(--color-accent-hover);
-        }
-
-        /* --- STEPS --- */
-        .steps {
-            margin: 2rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .step {
-            display: flex;
-            gap: 1.25rem;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            width: 36px;
-            height: 36px;
-            min-width: 36px;
-            background: var(--color-accent-light);
-            border-radius: 50%;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--color-accent);
-            margin-top: 2px;
+            gap: 0.75rem;
         }
 
-        .step-content h3 {
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--color-text);
-            margin-bottom: 0.25rem;
-        }
-
-        .step-content p {
-            font-size: 0.925rem;
-            color: var(--color-text-light);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        /* --- CTA SECTION --- */
-        .cta-section {
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3.5vw, 1.875rem);
-            line-height: 1.3;
-            margin-bottom: 0.5rem;
-        }
-
-        .cta-sub {
-            color: var(--color-text-light);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             font-family: var(--font-body);
             font-size: 1.05rem;
             font-weight: 600;
             color: #fff;
             background: var(--color-accent);
             text-decoration: none;
-            padding: 0.9rem 2.5rem;
-            border-radius: 8px;
-            transition: background 0.2s ease, transform 0.15s ease;
-            box-shadow: 0 2px 8px rgba(26, 92, 58, 0.2);
+            padding: 0.9rem 2.25rem;
+            border-radius: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(27, 107, 58, 0.15);
         }
 
-        .cta-button:hover {
+        .btn-primary:hover {
             background: var(--color-accent-hover);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(26, 92, 58, 0.25);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 8px 24px rgba(27, 107, 58, 0.2);
         }
 
-        .cta-button:active {
-            transform: translateY(0);
+        .btn-primary:active { transform: translateY(0); }
+
+        .btn-primary svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-note {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* --- PRODUCT MOCKUP --- */
+        .mockup-section {
+            max-width: 820px;
+            margin: 3.5rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .mockup-frame {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        .mockup-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: #F8F7F5;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mockup-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color-border);
+        }
+
+        .mockup-url {
+            flex: 1;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+            letter-spacing: 0.01em;
+        }
+
+        .mockup-content {
+            padding: 2.5rem 3rem;
+            min-height: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .mockup-placeholder-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            opacity: 0.25;
+        }
+
+        .mockup-placeholder-text {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .mockup-placeholder-text strong {
+            color: var(--color-text-mid);
+            font-weight: 600;
+        }
+
+        /* --- SECTION WRAPPER --- */
+        .section-wrap {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-wrap.wide {
+            max-width: var(--max-width);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .section-body {
+            color: var(--color-text-mid);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-body:last-child { margin-bottom: 0; }
+
+        .section-body strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        /* --- DIVIDER --- */
+        .divider {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .divider-line {
+            height: 1px;
+            background: var(--color-border);
+        }
+
+        /* --- ENTRY POINTS --- */
+        .entry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .entry-card {
+            background: var(--color-card);
+            border: 1.5px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .entry-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 4px 20px var(--color-accent-glow);
+        }
+
+        .entry-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-accent-soft);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .entry-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+        }
+
+        .entry-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            line-height: 1.3;
+            margin-bottom: 0.65rem;
+            color: var(--color-text);
+            letter-spacing: -0.01em;
+        }
+
+        .entry-card p {
+            font-size: 0.925rem;
+            color: var(--color-text-mid);
+            line-height: 1.65;
+        }
+
+        /* --- SCENARIOS --- */
+        .scenario-list {
+            margin: 2rem 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .scenario-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            background: var(--color-warm);
+            border-radius: 10px;
+            padding: 1.125rem 1.35rem;
+            font-size: 0.95rem;
+            color: var(--color-text-mid);
+            line-height: 1.6;
+        }
+
+        .scenario-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--color-warm-deep);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+        }
+
+        .scenario-icon svg {
+            width: 14px;
+            height: 14px;
+            color: var(--color-text-light);
+        }
+
+        /* --- STEPS --- */
+        .steps-grid {
+            margin: 2.5rem 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .step-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .step-row:last-child { border-bottom: none; }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: var(--color-accent);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .step-body h3 {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 0.3rem;
+        }
+
+        .step-body p {
+            font-size: 0.925rem;
+            color: var(--color-text-mid);
+            line-height: 1.65;
+        }
+
+        .steps-highlight {
+            background: var(--color-accent-soft);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .steps-highlight p {
+            color: var(--color-accent-hover);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* --- SOCIAL PROOF --- */
+        .proof-section {
+            background: var(--color-warm);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .proof-card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1.75rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .proof-quote {
+            font-size: 1rem;
+            color: var(--color-text);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .proof-author {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        .proof-author strong {
+            color: var(--color-text-mid);
+            font-weight: 600;
+        }
+
+        /* --- BOTTOM CTA --- */
+        .bottom-cta {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            max-width: var(--content-width);
+            margin: 0 auto;
+        }
+
+        .bottom-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-cta p {
+            color: var(--color-text-mid);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
         }
 
         /* --- FOOTER --- */
         footer {
-            max-width: 960px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             border-top: 1px solid var(--color-border);
             display: flex;
             align-items: center;
@@ -362,62 +547,52 @@
         .footer-links {
             display: flex;
             gap: 1.5rem;
-            flex-wrap: wrap;
         }
 
         .footer-links a {
             color: var(--color-text-light);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--color-text);
-        }
+        .footer-links a:hover { color: var(--color-text); }
 
         /* --- ANIMATIONS --- */
-        .fade-in {
+        .reveal {
             opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .fade-in.visible {
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
+        .d1 { transition-delay: 0.1s; }
+        .d2 { transition-delay: 0.2s; }
+        .d3 { transition-delay: 0.3s; }
+        .d4 { transition-delay: 0.4s; }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 600px) {
-            .hero {
-                margin-top: 2.5rem;
-            }
+        @media (max-width: 768px) {
+            .hero { margin-top: 2rem; }
+            .hero h1 { font-size: 2.25rem; }
+            .entry-grid { grid-template-columns: 1fr; }
+            .proof-grid { grid-template-columns: 1fr; }
+            .mockup-content { padding: 2rem 1.5rem; min-height: 240px; }
+            .section-wrap { padding: 3.5rem 1.5rem; }
+            .nav-links { gap: 1rem; }
+            .nav-link { display: none; }
+        }
 
-            .section {
-                padding: 3rem 1.5rem;
-            }
-
-            .entry-points {
-                grid-template-columns: 1fr;
-            }
-
-            .scenario {
-                padding: 1rem 1.25rem;
-            }
-
-            .step {
-                gap: 1rem;
-            }
-
-            footer {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        @media (max-width: 480px) {
+            nav { padding: 1rem 1.25rem; }
+            .hero h1 { font-size: 1.85rem; }
+            .hero-sub { font-size: 1rem; }
+            .entry-card { padding: 1.5rem; }
+            .mockup-content { padding: 1.5rem 1rem; min-height: 200px; }
+            footer { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -425,121 +600,196 @@
 
     <nav>
         <a href="/" class="logo">Ontiri</a>
-        <a href="https://agree.ontiri.com/signup/" class="nav-cta">Get Started</a>
+        <div class="nav-links">
+            <a href="#how-it-works" class="nav-link">How it works</a>
+            <a href="#who-its-for" class="nav-link">Who it's for</a>
+            <a href="https://agree.ontiri.com/signup/" class="nav-cta">Get Started</a>
+        </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <h1 class="fade-in">Get on the same page<br><span>before the work starts.</span></h1>
-        <p class="fade-in stagger-1">Ontiri turns a conversation into a clear, written agreement — whether you're still working things out or just need to capture what you've already decided.</p>
-        <a href="https://agree.ontiri.com/signup/" class="hero-cta fade-in stagger-2">Create your first agreement</a>
-        <p class="hero-sub fade-in stagger-2">Free to start. No credit card required.</p>
+        <div class="hero-badge reveal">Free during beta</div>
+        <h1 class="reveal d1">Get on the same page<br><em>before the work starts.</em></h1>
+        <p class="hero-sub reveal d2">Ontiri turns a conversation into a clear, written agreement — whether you're still working things out or just need to capture what you've already decided.</p>
+        <div class="hero-actions reveal d3">
+            <a href="https://agree.ontiri.com/signup/" class="btn-primary">
+                Create your first agreement
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <span class="hero-note">No credit card required</span>
+        </div>
     </section>
 
-    <div class="section-divider fade-in stagger-3"></div>
+    <!-- PRODUCT MOCKUP -->
+     <!--
+    <div class="mockup-section reveal d4">
+        <div class="mockup-frame">
+            <div class="mockup-browser-bar">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <div class="mockup-url">agree.ontiri.com</div>
+                <div style="width: 42px;"></div>
+            </div>
+            <div class="mockup-content">
+                <svg class="mockup-placeholder-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                <img src="ontiri-screenshot-1.png" style="width:100%; display:block;" alt="Ontiri agreement view">
+            </div>
+        </div>
+    </div>
+    -->
 
-    <!-- SECTION: TWO STARTING POINTS -->
-    <section class="section">
-        <h2 class="fade-in">Two ways people use Ontiri</h2>
-        <p class="fade-in stagger-1">It doesn't matter whether you've shaken hands or you're still figuring things out. Ontiri meets you where you are.</p>
+    <div class="divider"><div class="divider-line"></div></div>
 
-        <div class="entry-points fade-in stagger-2">
-            <div class="entry-point">
-                <div class="ep-label">Still working it out</div>
+    <!-- TWO ENTRY POINTS -->
+    <div class="section-wrap">
+        <div class="section-label reveal">Two ways in</div>
+        <h2 class="section-heading reveal d1">It doesn't matter where you're starting from</h2>
+        <p class="section-body reveal d2">Whether you've shaken hands or you're still figuring things out — Ontiri meets you where you are.</p>
+
+        <div class="entry-grid">
+            <div class="entry-card reveal d1">
+                <div class="entry-icon">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                </div>
+                <div class="entry-label">Still working it out</div>
                 <h3>Get on the same page</h3>
                 <p>You've talked about working together but haven't nailed down the details. Ontiri helps you surface what you haven't discussed yet and work through it together.</p>
             </div>
-            <div class="entry-point">
-                <div class="ep-label">Already agreed</div>
+            <div class="entry-card reveal d2">
+                <div class="entry-icon">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div class="entry-label">Already agreed</div>
                 <h3>Capture what you decided</h3>
                 <p>You've already agreed on the terms. Ontiri turns your notes into a clear agreement and catches anything you might have missed.</p>
             </div>
         </div>
+    </div>
 
-        <p class="fade-in stagger-3"><strong>Same tool. Same workflow. Different starting points.</strong></p>
-    </section>
+    <div class="divider"><div class="divider-line"></div></div>
 
-    <div class="section-divider fade-in"></div>
+    <!-- THE PROBLEM -->
+    <div class="section-wrap">
+        <div class="section-label reveal">The problem</div>
+        <h2 class="section-heading reveal d1">The stuff that causes problems later</h2>
+        <p class="section-body reveal d2">When two people agree to work together, everything feels clear. Writing it down seems unnecessary — and traditional agreements are long, full of jargon, and make a friendly deal feel adversarial. So nothing gets written down.</p>
 
-    <!-- SECTION: THE PROBLEM -->
-    <section class="section">
-        <h2 class="fade-in">The stuff that causes problems later</h2>
-        <p class="fade-in stagger-1">When two people agree to work together, everything feels clear. Writing it down seems unnecessary — and traditional agreements are long, full of jargon, and make a friendly deal feel adversarial. So nothing gets written down.</p>
-
-        <div class="scenarios">
-            <div class="scenario fade-in stagger-1">A freelancer delivers the work. The client expects unlimited revisions that were never discussed.</div>
-            <div class="scenario fade-in stagger-2">A contractor and a homeowner disagree on what was included in the scope.</div>
-            <div class="scenario fade-in stagger-3">Two people start a project together. Three months in, they have very different ideas about who owns what.</div>
-            <div class="scenario fade-in stagger-4">A photographer and a couple remember different cancellation terms.</div>
+        <div class="scenario-list">
+            <div class="scenario-item reveal d1">
+                <div class="scenario-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01" /></svg></div>
+                A freelancer delivers the work. The client expects unlimited revisions that were never discussed.
+            </div>
+            <div class="scenario-item reveal d2">
+                <div class="scenario-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01" /></svg></div>
+                A contractor and a homeowner disagree on what was included in the scope.
+            </div>
+            <div class="scenario-item reveal d3">
+                <div class="scenario-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01" /></svg></div>
+                Two people start a project together. Three months in, they have very different ideas about who owns what.
+            </div>
+            <div class="scenario-item reveal d4">
+                <div class="scenario-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01" /></svg></div>
+                A photographer and a couple remember different cancellation terms.
+            </div>
         </div>
 
-        <p class="fade-in"><strong>Not because anyone was dishonest. Because nobody thought to ask.</strong></p>
-    </section>
+        <p class="section-body reveal"><strong>Not because anyone was dishonest. Because nobody thought to ask.</strong></p>
+    </div>
 
-    <div class="section-divider fade-in"></div>
+    <div class="divider"><div class="divider-line"></div></div>
 
-    <!-- SECTION: HOW IT WORKS -->
-    <section class="section">
-        <h2 class="fade-in">Here's how it works</h2>
+    <!-- HOW IT WORKS -->
+    <div class="section-wrap" id="how-it-works">
+        <div class="section-label reveal">How it works</div>
+        <h2 class="section-heading reveal d1">Four steps. About ten minutes.</h2>
 
-        <div class="steps fade-in stagger-1">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+        <div class="steps-grid">
+            <div class="step-row reveal d1">
+                <div class="step-num">1</div>
+                <div class="step-body">
                     <h3>Describe what you need to agree on</h3>
                     <p>In your own words, however rough. Paste in an email, some notes, bullet points — whatever you have.</p>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step-row reveal d2">
+                <div class="step-num">2</div>
+                <div class="step-body">
                     <h3>Ontiri drafts an agreement and flags what's missing</h3>
                     <p>The AI writes a clear, readable agreement from your input — no jargon. Then it surfaces the things you probably haven't thought about yet.</p>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
+            <div class="step-row reveal d3">
+                <div class="step-num">3</div>
+                <div class="step-body">
                     <h3>The other person reviews and has their say</h3>
                     <p>They get a simple link. No signup needed, no app to download. They review, respond, and you work through any open questions together.</p>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-content">
+            <div class="step-row reveal d4">
+                <div class="step-num">4</div>
+                <div class="step-body">
                     <h3>You both confirm</h3>
                     <p>When you're both happy, you lock it in. A clear record of what you agreed — that you can reference if things get fuzzy later.</p>
                 </div>
             </div>
         </div>
 
-        <div class="highlight-box fade-in stagger-2">
+        <div class="steps-highlight reveal">
             <p><strong>The whole thing takes about ten minutes.</strong> And the other person doesn't need to sign up for anything.</p>
         </div>
-    </section>
+    </div>
 
-    <div class="section-divider fade-in"></div>
+    <!-- SOCIAL PROOF -->
+    <div class="proof-section">
+        <div class="section-wrap wide">
+            <div class="section-label reveal">From our beta users</div>
+            <h2 class="section-heading reveal d1">People are already using Ontiri</h2>
 
-    <!-- SECTION: WHO IT'S FOR -->
-    <section class="section">
-        <h2 class="fade-in">Who should use Ontiri?</h2>
-        <p class="fade-in stagger-1">Ontiri is for anyone who's about to work with someone else and wants to avoid the "that's not what I thought we agreed" conversation three months later.</p>
-        <p class="fade-in stagger-2">Freelancers and their clients. Contractors and homeowners. Business partners. Collaborators. Anyone who wants a clear starting point — without hiring a lawyer or spending an afternoon writing a contract.</p>
-        <p class="fade-in stagger-3"><strong>It's friendly, it's fast, and it's designed to feel like a conversation — not a legal process.</strong></p>
-    </section>
+            <div class="proof-grid">
+                <div class="proof-card reveal d1">
+                    <p class="proof-quote">"I pasted in my old agreement and the OnTiri found six real issues I hadn't spotted. That alone was worth it. The electronic signing also makes things super-easy"</p>
+                    <p class="proof-author"><strong>Rick G.</strong> · Property investor</p>
+                </div>
+                <div class="proof-card reveal d2">
+                    <p class="proof-quote">"I immediately saw how I could use this for sub-contractor agreements. It took five minutes to set one up much better than I could have written myself."</p>
+                    <p class="proof-author"><strong>Emery S.</strong> · Builder</p>
+                </div>
+                <div class="proof-card reveal d3">
+                    <p class="proof-quote">"Quick way to draft a complete Scope of Works by simply describing the job. Ontiri suggested  important stuff I wouldn't have thought of</p>
+                    <p class="proof-author"><strong>Sean L.</strong> · Web/UI designer</p>
+                </div>
+                <div class="proof-card reveal d3">
+                    <p class="proof-quote">"The two-way dialogue sorted issues seamlessly, and updated the agreement automatically. Great tool."</p>
+                    <p class="proof-author"><strong>Francine K.</strong> · Consultant</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- CTA -->
-    <section class="cta-section">
-        <h2 class="fade-in">Spend ten minutes now.<br>Enjoy a stress-free time later.</h2>
-        <p class="cta-sub fade-in stagger-1">Free to start. No credit card required.</p>
-        <a href="https://agree.ontiri.com/signup/" class="cta-button fade-in stagger-2">Get Started</a>
-    </section>
+    <!-- WHO IT'S FOR -->
+    <div class="section-wrap" id="who-its-for">
+        <div class="section-label reveal">Who it's for</div>
+        <h2 class="section-heading reveal d1">Anyone who's about to work with someone else</h2>
+        <p class="section-body reveal d2">Ontiri is for anyone who wants to avoid the "that's not what I thought we agreed" conversation three months later.</p>
+        <p class="section-body reveal d3">Freelancers and their clients. Contractors and homeowners. Business partners. Collaborators. Anyone who wants a clear starting point — without hiring a lawyer or spending an afternoon writing a contract.</p>
+        <p class="section-body reveal d4"><strong>It's friendly, it's fast, and it's designed to feel like a conversation — not a legal process.</strong></p>
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <div class="bottom-cta">
+        <h2 class="reveal">Spend ten minutes now.<br>Save yourself trouble later.</h2>
+        <p class="reveal d1">Free during beta. No credit card required.</p>
+        <a href="https://agree.ontiri.com/signup/" class="btn-primary reveal d2">
+            Get Started
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+    </div>
 
     <!-- FOOTER -->
     <footer>
         <span>&copy; 2026 Ontiri</span>
         <div class="footer-links">
-            <a href="mailto:support@ontiri.com">support@ontiri.com</a>
+            <a href="mailto:support@ontiri.com">Contact</a>
             <a href="https://agree.ontiri.com/terms/">Terms</a>
             <a href="https://agree.ontiri.com/privacy/">Privacy</a>
         </div>
@@ -553,12 +803,9 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -40px 0px'
-        });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 </body>
