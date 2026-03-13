@@ -923,12 +923,10 @@
         const toggle = document.getElementById('themeToggle');
         const html = document.documentElement;
 
-        // Check saved preference or system preference
+        // Only override default dark theme if user has explicitly toggled before
         const saved = localStorage.getItem('theme');
         if (saved) {
             html.setAttribute('data-theme', saved);
-        } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-            html.setAttribute('data-theme', 'light');
         }
 
         toggle.addEventListener('click', () => {
